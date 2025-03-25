@@ -1,0 +1,49 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Flight Price Prediction</title>
+</head>
+<body>
+    <h2>Space Flight Price Prediction</h2>
+    <form method="post">
+        <label for="engines">Engines:</label>
+        <input type="number" id="engines" name="engines" required><br>
+        
+        <label for="passenger_capacity">Passenger Capacity:</label>
+        <input type="number" id="passenger_capacity" name="passenger_capacity" required><br>
+        
+        <label for="crew">Crew:</label>
+        <input type="number" id="crew" name="crew" required><br>
+        
+        <label for="d_check_complete">D-Check Complete:</label>
+        <input type="checkbox" id="d_check_complete" name="d_check_complete"><br>
+        
+        <label for="moon_clearance_complete">Moon Clearance Complete:</label>
+        <input type="checkbox" id="moon_clearance_complete" name="moon_clearance_complete"><br>
+        
+        <label for="iata_approved">IATA Approved:</label>
+        <input type="checkbox" id="iata_approved" name="iata_approved"><br>
+        
+        <label for="company_rating">Company Rating (0 - 1):</label>
+        <input type="number" step="0.1" id="company_rating" name="company_rating" min="0" max="1" required><br>
+        
+        <label for="review_scores_rating">Review Scores Rating (1 - 100):</label>
+        <input type="number" step="1" id="review_scores_rating" name="review_scores_rating" min="1" max="100" required><br>
+        
+        <button type="submit">Predict Price</button>
+    </form>
+    
+    {% if prediction is not none %}
+        <h3>Predicted Price: USD {{ prediction }}</h3>
+    {% endif %}
+    
+    {% if error %}
+        <p style="color: red;">Error: {{ error }}</p>
+    {% endif %}
+</body>
+</html>
+
+{% endblock %}
