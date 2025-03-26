@@ -40,7 +40,7 @@ def home():
             }])
 
             # Save input data to CSV (for Kedro to read)
-            input_data.to_csv("data/05_model_input/input_data.csv", index=False)
+            input_data.to_csv("gs://mlops-bucket-gcs/data/05_model_input/input_data.csv", index=False)
 
             print(input_data)
             # Run Kedro pipeline with input data
