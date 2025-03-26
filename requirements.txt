@@ -7,3 +7,4 @@ notebook
 scikit-learn~=1.5.1
 seaborn~=0.12.1
 flask
+kedro-docker==0.6.2
