@@ -25,6 +25,8 @@ ARG KEDRO_UID=999
 ARG KEDRO_GID=0
 COPY --chown=${KEDRO_UID}:${KEDRO_GID} . .
 
-EXPOSE 8888
+EXPOSE 8080
 
-CMD ["kedro", "run"]
+##CMD ["kedro", "run"]
+# Run the Flask application
+CMD ["python", "src/mlops-example/flask_app.py"]
