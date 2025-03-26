@@ -41,44 +41,44 @@
 
 input_data:
   type: pandas.CSVDataset
-  filepath: data/05_model_input/input_data.csv
+  filepath: gs://mlops-bucket-gcs/data/05_model_input/input_data.csv
   save_args:
     index: False
 
 companies:
   type: pandas.CSVDataset
-  filepath: data/01_raw/companies.csv
+  filepath: gs://mlops-bucket-gcs/data/01_raw/companies.csv
 
 reviews:
   type: pandas.CSVDataset
-  filepath: data/01_raw/reviews.csv
+  filepath: gs://mlops-bucket-gcs/data/01_raw/reviews.csv
 
 shuttles:
   type: pandas.ExcelDataset
-  filepath: data/01_raw/shuttles.xlsx
+  filepath: gs://mlops-bucket-gcs/data/01_raw/shuttles.xlsx
   load_args:
     engine: openpyxl
 
 preprocessed_companies:
   type: pandas.ParquetDataset
-  filepath: data/02_intermediate/preprocessed_companies.parquet
+  filepath: gs://mlops-bucket-gcs/data/02_intermediate/preprocessed_companies.parquet
 
 preprocessed_shuttles:
   type: pandas.ParquetDataset
-  filepath: data/02_intermediate/preprocessed_shuttles.parquet
+  filepath: gs://mlops-bucket-gcs/data/02_intermediate/preprocessed_shuttles.parquet
 
 model_input_table:
   type: pandas.ParquetDataset
-  filepath: data/03_primary/model_input_table.parquet
+  filepath: gs://mlops-bucket-gcs/data/03_primary/model_input_table.parquet
 
 regressor:
   type: pickle.PickleDataset
-  filepath: data/06_models/regressor.pickle
+  filepath: gs://mlops-bucket-gcs/data/06_models/regressor.pickle
   versioned: true
 
 shuttle_passenger_capacity_plot_exp:
   type: plotly.PlotlyDataset
-  filepath: data/08_reporting/shuttle_passenger_capacity_plot_exp.json
+  filepath: gs://mlops-bucket-gcs/data/08_reporting/shuttle_passenger_capacity_plot_exp.json
   versioned: true
   plotly_args:
     type: bar
@@ -93,10 +93,10 @@ shuttle_passenger_capacity_plot_exp:
 
 shuttle_passenger_capacity_plot_go:
   type: plotly.JSONDataset
-  filepath: data/08_reporting/shuttle_passenger_capacity_plot_go.json
+  filepath: gs://mlops-bucket-gcs/data/08_reporting/shuttle_passenger_capacity_plot_go.json
   versioned: true
 
 dummy_confusion_matrix:
   type: matplotlib.MatplotlibWriter
-  filepath: data/08_reporting/dummy_confusion_matrix.png
+  filepath: gs://mlops-bucket-gcs/data/08_reporting/dummy_confusion_matrix.png
   versioned: true
