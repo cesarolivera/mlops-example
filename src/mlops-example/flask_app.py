@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from kedro.framework.session import KedroSession
 from kedro.framework.startup import bootstrap_project
 import pandas as pd
+import os
 from pathlib import Path
 
 # Initialize Flask App
@@ -63,4 +64,5 @@ def run_pipeline():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8080))  # Default to 8080
+    app.run(host="0.0.0.0", port=port)
