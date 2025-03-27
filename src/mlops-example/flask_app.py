@@ -48,8 +48,7 @@ def home():
                 result = session.run()
                 print(result)
                 predicted_price = result["predicted_price"]  # Adjust this based on your Kedro pipeline output
-            
-            return render_template("index.html", aswer=1, prediction=int(predicted_price))
+            return render_template("index.html", aswer=1, prediction=int(predicted_price), features=input_data.iloc[0].to_dict())
         except Exception as e:
             return render_template("index.html", error=str(e))
     

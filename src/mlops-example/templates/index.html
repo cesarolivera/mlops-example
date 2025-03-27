@@ -37,6 +37,17 @@
     </form>
     
     {% if prediction is not none %}
+        <p>Features:</p>
+        <ul>
+            <li>Engines: {{ features.engines }}</li>
+            <li>Passenger Capacity: {{ features.passenger_capacity }}</li>
+            <li>Crew: {{ features.crew }}</li>
+            <li>D-Check Complete: {{ features.d_check_complete }}</li>
+            <li>Moon Clearance Complete: {{ features.moon_clearance_complete }}</li>
+            <li>IATA Approved: {{ features.iata_approved }}</li>
+            <li>Company Rating: {{ features.company_rating }}</li>
+            <li>Review Scores Rating: {{ features.review_scores_rating }}</li>
+        </ul>
         <h3>Predicted Price: USD {{ prediction }}</h3>
     {% endif %}
     
